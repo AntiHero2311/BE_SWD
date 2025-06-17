@@ -1,9 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\T\u00E0i li\u1EC7u h\u1ECDc t\u1EADp\\SWD\\BE_SWD\\",
+  "WorkspaceRootPath": "D:\\LearingDocument\\SWD\\BE_SWD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A728963A-803D-460C-8793-FE49E48A80B0}|BE_SWD\\BE_SWD.csproj|d:\\t\u00E0i li\u1EC7u h\u1ECDc t\u1EADp\\swd\\be_swd\\be_swd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A728963A-803D-460C-8793-FE49E48A80B0}|BE_SWD\\BE_SWD.csproj|d:\\learingdocument\\swd\\be_swd\\be_swd\\models\\mathwebsitecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A728963A-803D-460C-8793-FE49E48A80B0}|BE_SWD\\BE_SWD.csproj|solutionrelative:be_swd\\models\\mathwebsitecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A728963A-803D-460C-8793-FE49E48A80B0}|BE_SWD\\BE_SWD.csproj|d:\\learingdocument\\swd\\be_swd\\be_swd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A728963A-803D-460C-8793-FE49E48A80B0}|BE_SWD\\BE_SWD.csproj|solutionrelative:be_swd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -47,10 +51,23 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MathWebsiteContext.cs",
+              "DocumentMoniker": "D:\\LearingDocument\\SWD\\BE_SWD\\BE_SWD\\Models\\MathWebsiteContext.cs",
+              "RelativeDocumentMoniker": "BE_SWD\\Models\\MathWebsiteContext.cs",
+              "ToolTip": "D:\\LearingDocument\\SWD\\BE_SWD\\BE_SWD\\Models\\MathWebsiteContext.cs",
+              "RelativeToolTip": "BE_SWD\\Models\\MathWebsiteContext.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAcwC0AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T12:09:36.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\T\u00E0i li\u1EC7u h\u1ECDc t\u1EADp\\SWD\\BE_SWD\\BE_SWD\\Program.cs",
+              "DocumentMoniker": "D:\\LearingDocument\\SWD\\BE_SWD\\BE_SWD\\Program.cs",
               "RelativeDocumentMoniker": "BE_SWD\\Program.cs",
-              "ToolTip": "D:\\T\u00E0i li\u1EC7u h\u1ECDc t\u1EADp\\SWD\\BE_SWD\\BE_SWD\\Program.cs",
+              "ToolTip": "D:\\LearingDocument\\SWD\\BE_SWD\\BE_SWD\\Program.cs",
               "RelativeToolTip": "BE_SWD\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
