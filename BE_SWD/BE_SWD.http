@@ -1,0 +1,23 @@
+@BE_SWD_HostAddress = http://localhost:5219
+
+### Signup
+POST {{BE_SWD_HostAddress}}/api/auth/signup
+Content-Type: application/json
+
+{
+  "username": "student1",
+  "passwordHash": "password123",
+  "role": "User",
+  "email": "student1@example.com"
+}
+
+### Signin
+POST {{BE_SWD_HostAddress}}/api/auth/signin
+Content-Type: application/json
+
+{
+  "username": "student1",
+  "passwordHash": "password123"
+}
+
+###
