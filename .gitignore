@@ -1,0 +1,52 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Others
+*.dbmdl
+*.bak
+*.backup
+*.mdf
+*.ldf
+
+# VS
+.vs/
+
+# EF Migrations
+Migrations/
+
+# Publish
+publish/
+
+# Test results
+TestResults/
+
+# Static web assets
+wwwroot/staticwebassets/
+
+# Others
+*.swp
+*.tmp 
