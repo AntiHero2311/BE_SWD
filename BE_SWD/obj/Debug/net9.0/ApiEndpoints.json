@@ -24,8 +24,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
-        "Type": "BE_SWD.Models.User",
+        "Name": "request",
+        "Type": "BE_SWD.Models.DTOs.SignupRequest",
         "IsRequired": true
       }
     ],

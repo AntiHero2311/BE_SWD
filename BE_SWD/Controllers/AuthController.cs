@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BE_SWD.Data;
 using BE_SWD.Models;
+using BE_SWD.Models.DTOs;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -15,11 +16,20 @@ namespace BE_SWD.Controllers
         public AuthController(ApplicationDbContext context) => _context = context;
 
         [HttpPost("signup")]
-        public async Task<IActionResult> Signup([FromBody] User user)
+        public async Task<IActionResult> Signup([FromBody] SignupRequest request)
         {
-            if (await _context.Users.AnyAsync(u => u.Username == user.Username))
+            if (await _context.Users.AnyAsync(u => u.Username == request.Username))
                 return BadRequest("Username already exists");
-            user.PasswordHash = HashPassword(user.PasswordHash);
+
+            var user = new User
+            {
+                Username = request.Username,
+                PasswordHash = HashPassword(request.Password),
+                Role = request.Role,
+                Email = request.Email,
+                MathCenterId = request.MathCenterId
+            };
+
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
             return Ok(new { user.UserId, user.Username, user.Role });
