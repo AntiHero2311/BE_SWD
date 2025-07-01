@@ -5,26 +5,159 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Auth/signup": {
+    "/api/Accounts": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
-          "Auth"
+          "Accounts"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SignupRequest"
+                "$ref": "#/components/schemas/Account"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/SignupRequest"
+                "$ref": "#/components/schemas/Account"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/SignupRequest"
+                "$ref": "#/components/schemas/Account"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Accounts/{id}": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Accounts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Account"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Account"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Account"
               }
             }
           }
@@ -34,32 +167,392 @@
             "description": "OK"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Accounts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
-    "/api/Auth/signin": {
+    "/api/Admins": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Admin"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Admin"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Admin"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
-          "Auth"
+          "Admins"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/Admin"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/Admin"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/Admin"
               }
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Admin"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Admin"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Admin"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Admins/{id}": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Admin"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Admin"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Admin"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Admins"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Admin"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Admin"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Admin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Admins"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Answers": {
+      "get": {
+        "tags": [
+          "Answers"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Answer"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Answer"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Answer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Answers"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Answer"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Answer"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Answer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Answer"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Answer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Answer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Answers/{id}": {
+      "get": {
+        "tags": [
+          "Answers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Answer"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Answer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Answer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Answers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Answer"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Answer"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Answer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Answers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -233,6 +726,191 @@
       "delete": {
         "tags": [
           "Courses"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Enrollments": {
+      "get": {
+        "tags": [
+          "Enrollments"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Enrollment"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Enrollment"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Enrollment"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Enrollments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Enrollment"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Enrollment"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Enrollment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Enrollment"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Enrollment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Enrollment"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Enrollments/{id}": {
+      "get": {
+        "tags": [
+          "Enrollments"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Enrollment"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Enrollment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Enrollment"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Enrollments"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Enrollment"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Enrollment"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Enrollment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Enrollments"
         ],
         "parameters": [
           {
@@ -807,6 +1485,191 @@
         }
       }
     },
+    "/api/QuizProgresses": {
+      "get": {
+        "tags": [
+          "QuizProgresses"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/QuizProgress"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/QuizProgress"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/QuizProgress"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "QuizProgresses"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuizProgress"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuizProgress"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuizProgress"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuizProgress"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuizProgress"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuizProgress"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/QuizProgresses/{id}": {
+      "get": {
+        "tags": [
+          "QuizProgresses"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuizProgress"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuizProgress"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuizProgress"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "QuizProgresses"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuizProgress"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuizProgress"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuizProgress"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "QuizProgresses"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Quizzes": {
       "get": {
         "tags": [
@@ -992,10 +1855,10 @@
         }
       }
     },
-    "/api/UserQuizResults": {
+    "/api/Students": {
       "get": {
         "tags": [
-          "UserQuizResults"
+          "Students"
         ],
         "responses": {
           "200": {
@@ -1005,7 +1868,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserQuizResult"
+                    "$ref": "#/components/schemas/Student"
                   }
                 }
               },
@@ -1013,7 +1876,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserQuizResult"
+                    "$ref": "#/components/schemas/Student"
                   }
                 }
               },
@@ -1021,7 +1884,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserQuizResult"
+                    "$ref": "#/components/schemas/Student"
                   }
                 }
               }
@@ -1031,23 +1894,23 @@
       },
       "post": {
         "tags": [
-          "UserQuizResults"
+          "Students"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserQuizResult"
+                "$ref": "#/components/schemas/Student"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserQuizResult"
+                "$ref": "#/components/schemas/Student"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UserQuizResult"
+                "$ref": "#/components/schemas/Student"
               }
             }
           }
@@ -1058,17 +1921,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserQuizResult"
+                  "$ref": "#/components/schemas/Student"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserQuizResult"
+                  "$ref": "#/components/schemas/Student"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserQuizResult"
+                  "$ref": "#/components/schemas/Student"
                 }
               }
             }
@@ -1076,10 +1939,10 @@
         }
       }
     },
-    "/api/UserQuizResults/{id}": {
+    "/api/Students/{id}": {
       "get": {
         "tags": [
-          "UserQuizResults"
+          "Students"
         ],
         "parameters": [
           {
@@ -1098,17 +1961,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserQuizResult"
+                  "$ref": "#/components/schemas/Student"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserQuizResult"
+                  "$ref": "#/components/schemas/Student"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserQuizResult"
+                  "$ref": "#/components/schemas/Student"
                 }
               }
             }
@@ -1117,7 +1980,7 @@
       },
       "put": {
         "tags": [
-          "UserQuizResults"
+          "Students"
         ],
         "parameters": [
           {
@@ -1134,17 +1997,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserQuizResult"
+                "$ref": "#/components/schemas/Student"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserQuizResult"
+                "$ref": "#/components/schemas/Student"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UserQuizResult"
+                "$ref": "#/components/schemas/Student"
               }
             }
           }
@@ -1157,192 +2020,7 @@
       },
       "delete": {
         "tags": [
-          "UserQuizResults"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Users": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Users/{id}": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Users"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Users"
+          "Students"
         ],
         "parameters": [
           {
@@ -1365,22 +2043,122 @@
   },
   "components": {
     "schemas": {
+      "Account": {
+        "required": [
+          "email",
+          "password",
+          "passwordHash",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "email": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "passwordHash": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "role": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          },
+          "mathCenterId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Admin": {
+        "required": [
+          "accountId",
+          "fullName"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fullName": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Answer": {
+        "required": [
+          "answerText",
+          "isCorrect",
+          "questionId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "questionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "answerText": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "isCorrect": {
+            "type": "boolean"
+          },
+          "explanation": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "Course": {
         "required": [
-          "grade",
+          "createdByAccountId",
           "title"
         ],
         "type": "object",
         "properties": {
-          "courseId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "grade": {
+          "id": {
             "type": "integer",
             "format": "int32"
           },
           "title": {
+            "maxLength": 150,
             "minLength": 1,
             "type": "string"
           },
@@ -1388,12 +2166,55 @@
             "type": "string",
             "nullable": true
           },
-          "lessons": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Lesson"
-            },
+          "createdByAccountId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mathCenterId": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
+          },
+          "isVerified": {
+            "type": "boolean"
+          },
+          "verifiedById": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Enrollment": {
+        "required": [
+          "courseId",
+          "studentId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "studentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "courseId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "registeredAt": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -1405,7 +2226,7 @@
         ],
         "type": "object",
         "properties": {
-          "lessonId": {
+          "id": {
             "type": "integer",
             "format": "int32"
           },
@@ -1413,10 +2234,8 @@
             "type": "integer",
             "format": "int32"
           },
-          "course": {
-            "$ref": "#/components/schemas/Course"
-          },
           "title": {
+            "maxLength": 150,
             "minLength": 1,
             "type": "string"
           },
@@ -1424,54 +2243,67 @@
             "type": "string",
             "nullable": true
           },
-          "quizzes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Quiz"
-            },
-            "nullable": true
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
       },
       "MathCenter": {
         "required": [
-          "name"
+          "accountId",
+          "centerName"
         ],
         "type": "object",
         "properties": {
-          "mathCenterId": {
+          "id": {
             "type": "integer",
             "format": "int32"
           },
-          "name": {
+          "accountId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "centerName": {
+            "maxLength": 150,
             "minLength": 1,
             "type": "string"
           },
-          "address": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "users": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/User"
-            },
+          "phone": {
+            "maxLength": 20,
+            "type": "string",
             "nullable": true
+          },
+          "address": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "isVerified": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
       },
       "Question": {
         "required": [
-          "answerOptions",
-          "correctAnswer",
           "questionText",
           "quizId"
         ],
         "type": "object",
         "properties": {
-          "questionId": {
+          "id": {
             "type": "integer",
             "format": "int32"
           },
@@ -1479,20 +2311,16 @@
             "type": "integer",
             "format": "int32"
           },
-          "quiz": {
-            "$ref": "#/components/schemas/Quiz"
-          },
           "questionText": {
             "minLength": 1,
             "type": "string"
           },
-          "answerOptions": {
-            "minLength": 1,
-            "type": "string"
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
           },
-          "correctAnswer": {
-            "minLength": 1,
-            "type": "string"
+          "status": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -1504,7 +2332,7 @@
         ],
         "type": "object",
         "properties": {
-          "quizId": {
+          "id": {
             "type": "integer",
             "format": "int32"
           },
@@ -1512,16 +2340,20 @@
             "type": "integer",
             "format": "int32"
           },
-          "lesson": {
-            "$ref": "#/components/schemas/Lesson"
-          },
           "title": {
+            "maxLength": 150,
             "minLength": 1,
             "type": "string"
           },
-          "description": {
-            "type": "string",
-            "nullable": true
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "lesson": {
+            "$ref": "#/components/schemas/Lesson"
           },
           "questions": {
             "type": "array",
@@ -1529,122 +2361,78 @@
               "$ref": "#/components/schemas/Question"
             },
             "nullable": true
-          },
-          "userQuizResults": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserQuizResult"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "SignupRequest": {
-        "type": "object",
-        "properties": {
-          "username": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
-          },
-          "role": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "mathCenterId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "User": {
+      "QuizProgress": {
         "required": [
-          "passwordHash",
-          "role",
-          "username"
-        ],
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "username": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "passwordHash": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "role": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "mathCenterId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "mathCenter": {
-            "$ref": "#/components/schemas/MathCenter"
-          },
-          "quizResults": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserQuizResult"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserQuizResult": {
-        "required": [
+          "attemptNumber",
+          "enrollmentId",
           "quizId",
-          "userId"
+          "score"
         ],
         "type": "object",
         "properties": {
-          "resultId": {
+          "id": {
             "type": "integer",
             "format": "int32"
           },
-          "userId": {
+          "enrollmentId": {
             "type": "integer",
             "format": "int32"
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
           },
           "quizId": {
             "type": "integer",
             "format": "int32"
           },
-          "quiz": {
-            "$ref": "#/components/schemas/Quiz"
-          },
           "score": {
+            "type": "number",
+            "format": "double"
+          },
+          "attemptNumber": {
             "type": "integer",
             "format": "int32"
           },
-          "dateTaken": {
+          "attemptDate": {
             "type": "string",
             "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Student": {
+        "required": [
+          "accountId",
+          "fullName"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fullName": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "phone": {
+            "maxLength": 20,
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false

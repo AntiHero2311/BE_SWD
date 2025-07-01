@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "D:\\LearingDocument\\SWD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4C0D40D4-38D1-4CD6-B287-9EA03DBF89B2}|BE_SWD\\BE_SWD.csproj|d:\\learingdocument\\swd\\be_swd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4C0D40D4-38D1-4CD6-B287-9EA03DBF89B2}|BE_SWD\\BE_SWD.csproj|solutionrelative:be_swd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4C0D40D4-38D1-4CD6-B287-9EA03DBF89B2}|BE_SWD\\BE_SWD.csproj|d:\\learingdocument\\swd\\be_swd\\migrations\\20250624071344_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C0D40D4-38D1-4CD6-B287-9EA03DBF89B2}|BE_SWD\\BE_SWD.csproj|solutionrelative:be_swd\\migrations\\20250624071344_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C0D40D4-38D1-4CD6-B287-9EA03DBF89B2}|BE_SWD\\BE_SWD.csproj|d:\\learingdocument\\swd\\be_swd\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C0D40D4-38D1-4CD6-B287-9EA03DBF89B2}|BE_SWD\\BE_SWD.csproj|solutionrelative:be_swd\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4C0D40D4-38D1-4CD6-B287-9EA03DBF89B2}|BE_SWD\\BE_SWD.csproj|d:\\learingdocument\\swd\\be_swd\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{4C0D40D4-38D1-4CD6-B287-9EA03DBF89B2}|BE_SWD\\BE_SWD.csproj|solutionrelative:be_swd\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C0D40D4-38D1-4CD6-B287-9EA03DBF89B2}|BE_SWD\\BE_SWD.csproj|d:\\learingdocument\\swd\\be_swd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C0D40D4-38D1-4CD6-B287-9EA03DBF89B2}|BE_SWD\\BE_SWD.csproj|solutionrelative:be_swd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C0D40D4-38D1-4CD6-B287-9EA03DBF89B2}|BE_SWD\\BE_SWD.csproj|d:\\learingdocument\\swd\\be_swd\\models\\userquizresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C0D40D4-38D1-4CD6-B287-9EA03DBF89B2}|BE_SWD\\BE_SWD.csproj|solutionrelative:be_swd\\models\\userquizresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,7 +70,45 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20250624071344_InitialCreate.cs",
+              "DocumentMoniker": "D:\\LearingDocument\\SWD\\BE_SWD\\Migrations\\20250624071344_InitialCreate.cs",
+              "RelativeDocumentMoniker": "BE_SWD\\Migrations\\20250624071344_InitialCreate.cs",
+              "ToolTip": "D:\\LearingDocument\\SWD\\BE_SWD\\Migrations\\20250624071344_InitialCreate.cs",
+              "RelativeToolTip": "BE_SWD\\Migrations\\20250624071344_InitialCreate.cs",
+              "ViewState": "AgIAALsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T03:38:11.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserQuizResult.cs",
+              "DocumentMoniker": "D:\\LearingDocument\\SWD\\BE_SWD\\Models\\UserQuizResult.cs",
+              "RelativeDocumentMoniker": "BE_SWD\\Models\\UserQuizResult.cs",
+              "ToolTip": "D:\\LearingDocument\\SWD\\BE_SWD\\Models\\UserQuizResult.cs",
+              "RelativeToolTip": "BE_SWD\\Models\\UserQuizResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T12:34:04.047Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\LearingDocument\\SWD\\BE_SWD\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "BE_SWD\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\LearingDocument\\SWD\\BE_SWD\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "BE_SWD\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T12:33:55.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\LearingDocument\\SWD\\BE_SWD\\appsettings.json",
               "RelativeDocumentMoniker": "BE_SWD\\appsettings.json",
@@ -70,16 +120,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\LearingDocument\\SWD\\BE_SWD\\Program.cs",
               "RelativeDocumentMoniker": "BE_SWD\\Program.cs",
               "ToolTip": "D:\\LearingDocument\\SWD\\BE_SWD\\Program.cs",
               "RelativeToolTip": "BE_SWD\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAwAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T07:30:32.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T07:30:32.854Z"
             }
           ]
         },

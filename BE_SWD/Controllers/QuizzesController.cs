@@ -27,15 +27,15 @@ namespace BE_SWD.Controllers
         {
             _context.Quizzes.Add(quiz);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetQuiz), new { id = quiz.QuizId }, quiz);
+            return CreatedAtAction(nameof(GetQuiz), new { id = quiz.Id }, quiz);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateQuiz(int id, Quiz quiz)
         {
-            if (id != quiz.QuizId) return BadRequest();
+            if (id != quiz.Id) return BadRequest();
             _context.Entry(quiz).State = EntityState.Modified;
-            try { await _context.SaveChangesAsync(); } catch (DbUpdateConcurrencyException) { if (!_context.Quizzes.Any(e => e.QuizId == id)) return NotFound(); else throw; }
+            try { await _context.SaveChangesAsync(); } catch (DbUpdateConcurrencyException) { if (!_context.Quizzes.Any(e => e.Id == id)) return NotFound(); else throw; }
             return NoContent();
         }
 

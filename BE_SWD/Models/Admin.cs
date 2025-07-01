@@ -3,15 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BE_SWD.Models
 {
-    public class Question
+    public class Admin
     {
         [Key]
         public int Id { get; set; }
         [Required]
-        public int QuizId { get; set; }
+        public int AccountId { get; set; }
         [Required]
-        public string QuestionText { get; set; } = null!;
-        public int OrderIndex { get; set; } = 0;
-        public bool Status { get; set; } = true;
+        [MaxLength(150)]
+        public string FullName { get; set; } = null!;
     }
 } 

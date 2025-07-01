@@ -3,19 +3,21 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BE_SWD.Models
 {
-    public class Course
+    public class Account
     {
         [Key]
         public int Id { get; set; }
         [Required]
         [MaxLength(150)]
-        public string Title { get; set; } = null!;
-        public string? Description { get; set; }
+        public string Email { get; set; } = null!;
         [Required]
-        public int CreatedByAccountId { get; set; }
+        public string PasswordHash { get; set; } = null!;
+        [Required]
+        public string Password { get; set; } = null!;
+        [Required]
+        [MaxLength(50)]
+        public string Role { get; set; } = null!;
         public int? MathCenterId { get; set; }
-        public bool IsVerified { get; set; } = false;
-        public int? VerifiedById { get; set; }
         public bool Status { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }

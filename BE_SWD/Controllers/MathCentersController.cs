@@ -27,15 +27,15 @@ namespace BE_SWD.Controllers
         {
             _context.MathCenters.Add(mathCenter);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetMathCenter), new { id = mathCenter.MathCenterId }, mathCenter);
+            return CreatedAtAction(nameof(GetMathCenter), new { id = mathCenter.Id }, mathCenter);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateMathCenter(int id, MathCenter mathCenter)
         {
-            if (id != mathCenter.MathCenterId) return BadRequest();
+            if (id != mathCenter.Id) return BadRequest();
             _context.Entry(mathCenter).State = EntityState.Modified;
-            try { await _context.SaveChangesAsync(); } catch (DbUpdateConcurrencyException) { if (!_context.MathCenters.Any(e => e.MathCenterId == id)) return NotFound(); else throw; }
+            try { await _context.SaveChangesAsync(); } catch (DbUpdateConcurrencyException) { if (!_context.MathCenters.Any(e => e.Id == id)) return NotFound(); else throw; }
             return NoContent();
         }
 

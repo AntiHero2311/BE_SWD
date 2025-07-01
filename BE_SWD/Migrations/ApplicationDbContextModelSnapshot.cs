@@ -22,36 +22,165 @@ namespace BE_SWD.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BE_SWD.Models.Course", b =>
+            modelBuilder.Entity("BE_SWD.Models.Account", b =>
                 {
-                    b.Property<int>("CourseId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<int?>("MathCenterId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Accounts");
+                });
+
+            modelBuilder.Entity("BE_SWD.Models.Admin", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AccountId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Admins");
+                });
+
+            modelBuilder.Entity("BE_SWD.Models.Answer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AnswerText")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("Explanation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsCorrect")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Answers");
+                });
+
+            modelBuilder.Entity("BE_SWD.Models.Course", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatedByAccountId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Grade")
+                    b.Property<bool>("IsVerified")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("MathCenterId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
-                    b.HasKey("CourseId");
+                    b.Property<int?>("VerifiedById")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("BE_SWD.Models.Lesson", b =>
+            modelBuilder.Entity("BE_SWD.Models.Enrollment", b =>
                 {
-                    b.Property<int>("LessonId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LessonId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("RegisteredAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Enrollments");
+                });
+
+            modelBuilder.Entity("BE_SWD.Models.Lesson", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
@@ -59,52 +188,70 @@ namespace BE_SWD.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
+                    b.Property<int>("OrderIndex")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
-                    b.HasKey("LessonId");
-
-                    b.HasIndex("CourseId");
+                    b.HasKey("Id");
 
                     b.ToTable("Lessons");
                 });
 
             modelBuilder.Entity("BE_SWD.Models.MathCenter", b =>
                 {
-                    b.Property<int>("MathCenterId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MathCenterId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AccountId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("CenterName")
                         .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("MathCenterId");
+                    b.Property<bool>("IsVerified")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
 
                     b.ToTable("MathCenters");
                 });
 
             modelBuilder.Entity("BE_SWD.Models.Question", b =>
                 {
-                    b.Property<int>("QuestionId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuestionId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AnswerOptions")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CorrectAnswer")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("OrderIndex")
+                        .HasColumnType("int");
 
                     b.Property<string>("QuestionText")
                         .IsRequired()
@@ -113,7 +260,10 @@ namespace BE_SWD.Migrations
                     b.Property<int>("QuizId")
                         .HasColumnType("int");
 
-                    b.HasKey("QuestionId");
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("QuizId");
 
@@ -122,117 +272,106 @@ namespace BE_SWD.Migrations
 
             modelBuilder.Entity("BE_SWD.Models.Quiz", b =>
                 {
-                    b.Property<int>("QuizId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuizId"));
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("LessonId")
                         .HasColumnType("int");
 
+                    b.Property<int>("OrderIndex")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
-                    b.HasKey("QuizId");
+                    b.HasKey("Id");
 
                     b.HasIndex("LessonId");
 
                     b.ToTable("Quizzes");
                 });
 
-            modelBuilder.Entity("BE_SWD.Models.User", b =>
+            modelBuilder.Entity("BE_SWD.Models.QuizProgress", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("MathCenterId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserId");
-
-                    b.HasIndex("MathCenterId");
-
-                    b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("BE_SWD.Models.UserQuizResult", b =>
-                {
-                    b.Property<int>("ResultId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ResultId"));
-
-                    b.Property<DateTime>("DateTaken")
+                    b.Property<DateTime>("AttemptDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("AttemptNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EnrollmentId")
+                        .HasColumnType("int");
 
                     b.Property<int>("QuizId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Score")
-                        .HasColumnType("int");
+                    b.Property<double>("Score")
+                        .HasColumnType("float");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.HasKey("Id");
 
-                    b.HasKey("ResultId");
-
-                    b.HasIndex("QuizId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserQuizResults");
+                    b.ToTable("QuizProgresses");
                 });
 
-            modelBuilder.Entity("BE_SWD.Models.Lesson", b =>
+            modelBuilder.Entity("BE_SWD.Models.Student", b =>
                 {
-                    b.HasOne("BE_SWD.Models.Course", "Course")
-                        .WithMany("Lessons")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Navigation("Course");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AccountId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Address")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("BE_SWD.Models.Question", b =>
                 {
-                    b.HasOne("BE_SWD.Models.Quiz", "Quiz")
+                    b.HasOne("BE_SWD.Models.Quiz", null)
                         .WithMany("Questions")
                         .HasForeignKey("QuizId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Quiz");
                 });
 
             modelBuilder.Entity("BE_SWD.Models.Quiz", b =>
                 {
                     b.HasOne("BE_SWD.Models.Lesson", "Lesson")
-                        .WithMany("Quizzes")
+                        .WithMany()
                         .HasForeignKey("LessonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -240,59 +379,9 @@ namespace BE_SWD.Migrations
                     b.Navigation("Lesson");
                 });
 
-            modelBuilder.Entity("BE_SWD.Models.User", b =>
-                {
-                    b.HasOne("BE_SWD.Models.MathCenter", "MathCenter")
-                        .WithMany("Users")
-                        .HasForeignKey("MathCenterId");
-
-                    b.Navigation("MathCenter");
-                });
-
-            modelBuilder.Entity("BE_SWD.Models.UserQuizResult", b =>
-                {
-                    b.HasOne("BE_SWD.Models.Quiz", "Quiz")
-                        .WithMany("UserQuizResults")
-                        .HasForeignKey("QuizId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BE_SWD.Models.User", "User")
-                        .WithMany("QuizResults")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Quiz");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("BE_SWD.Models.Course", b =>
-                {
-                    b.Navigation("Lessons");
-                });
-
-            modelBuilder.Entity("BE_SWD.Models.Lesson", b =>
-                {
-                    b.Navigation("Quizzes");
-                });
-
-            modelBuilder.Entity("BE_SWD.Models.MathCenter", b =>
-                {
-                    b.Navigation("Users");
-                });
-
             modelBuilder.Entity("BE_SWD.Models.Quiz", b =>
                 {
                     b.Navigation("Questions");
-
-                    b.Navigation("UserQuizResults");
-                });
-
-            modelBuilder.Entity("BE_SWD.Models.User", b =>
-                {
-                    b.Navigation("QuizResults");
                 });
 #pragma warning restore 612, 618
         }

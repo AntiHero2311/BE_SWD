@@ -1,31 +1,326 @@
 [
   {
-    "ContainingType": "BE_SWD.Controllers.AuthController",
-    "Method": "Signin",
-    "RelativePath": "api/Auth/signin",
+    "ContainingType": "BE_SWD.Controllers.AccountsController",
+    "Method": "GetAccounts",
+    "RelativePath": "api/Accounts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BE_SWD.Models.Account, BE_SWD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AccountsController",
+    "Method": "CreateAccount",
+    "RelativePath": "api/Accounts",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "login",
-        "Type": "BE_SWD.Models.User",
+        "Name": "account",
+        "Type": "BE_SWD.Models.Account",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BE_SWD.Models.Account",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AccountsController",
+    "Method": "GetAccount",
+    "RelativePath": "api/Accounts/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BE_SWD.Models.Account",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AccountsController",
+    "Method": "UpdateAccount",
+    "RelativePath": "api/Accounts/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "account",
+        "Type": "BE_SWD.Models.Account",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BE_SWD.Controllers.AuthController",
-    "Method": "Signup",
-    "RelativePath": "api/Auth/signup",
+    "ContainingType": "BE_SWD.Controllers.AccountsController",
+    "Method": "DeleteAccount",
+    "RelativePath": "api/Accounts/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AdminsController",
+    "Method": "GetAdmins",
+    "RelativePath": "api/Admins",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BE_SWD.Models.Admin, BE_SWD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AdminsController",
+    "Method": "CreateAdmin",
+    "RelativePath": "api/Admins",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "BE_SWD.Models.DTOs.SignupRequest",
+        "Name": "admin",
+        "Type": "BE_SWD.Models.Admin",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BE_SWD.Models.Admin",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AdminsController",
+    "Method": "GetAdmin",
+    "RelativePath": "api/Admins/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BE_SWD.Models.Admin",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AdminsController",
+    "Method": "UpdateAdmin",
+    "RelativePath": "api/Admins/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "admin",
+        "Type": "BE_SWD.Models.Admin",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AdminsController",
+    "Method": "DeleteAdmin",
+    "RelativePath": "api/Admins/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AnswersController",
+    "Method": "GetAnswers",
+    "RelativePath": "api/Answers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BE_SWD.Models.Answer, BE_SWD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AnswersController",
+    "Method": "CreateAnswer",
+    "RelativePath": "api/Answers",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "answer",
+        "Type": "BE_SWD.Models.Answer",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BE_SWD.Models.Answer",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AnswersController",
+    "Method": "GetAnswer",
+    "RelativePath": "api/Answers/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BE_SWD.Models.Answer",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AnswersController",
+    "Method": "UpdateAnswer",
+    "RelativePath": "api/Answers/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "answer",
+        "Type": "BE_SWD.Models.Answer",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AnswersController",
+    "Method": "DeleteAnswer",
+    "RelativePath": "api/Answers/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -128,6 +423,115 @@
     "ContainingType": "BE_SWD.Controllers.CoursesController",
     "Method": "DeleteCourse",
     "RelativePath": "api/Courses/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.EnrollmentsController",
+    "Method": "GetEnrollments",
+    "RelativePath": "api/Enrollments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BE_SWD.Models.Enrollment, BE_SWD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.EnrollmentsController",
+    "Method": "CreateEnrollment",
+    "RelativePath": "api/Enrollments",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "enrollment",
+        "Type": "BE_SWD.Models.Enrollment",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BE_SWD.Models.Enrollment",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.EnrollmentsController",
+    "Method": "GetEnrollment",
+    "RelativePath": "api/Enrollments/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BE_SWD.Models.Enrollment",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.EnrollmentsController",
+    "Method": "UpdateEnrollment",
+    "RelativePath": "api/Enrollments/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "enrollment",
+        "Type": "BE_SWD.Models.Enrollment",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.EnrollmentsController",
+    "Method": "DeleteEnrollment",
+    "RelativePath": "api/Enrollments/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -468,6 +872,115 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BE_SWD.Controllers.QuizProgressesController",
+    "Method": "GetQuizProgresses",
+    "RelativePath": "api/QuizProgresses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BE_SWD.Models.QuizProgress, BE_SWD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.QuizProgressesController",
+    "Method": "CreateQuizProgress",
+    "RelativePath": "api/QuizProgresses",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "progress",
+        "Type": "BE_SWD.Models.QuizProgress",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BE_SWD.Models.QuizProgress",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.QuizProgressesController",
+    "Method": "GetQuizProgress",
+    "RelativePath": "api/QuizProgresses/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BE_SWD.Models.QuizProgress",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.QuizProgressesController",
+    "Method": "UpdateQuizProgress",
+    "RelativePath": "api/QuizProgresses/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "progress",
+        "Type": "BE_SWD.Models.QuizProgress",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.QuizProgressesController",
+    "Method": "DeleteQuizProgress",
+    "RelativePath": "api/QuizProgresses/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BE_SWD.Controllers.QuizzesController",
     "Method": "GetQuizzes",
     "RelativePath": "api/Quizzes",
@@ -577,16 +1090,16 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BE_SWD.Controllers.UserQuizResultsController",
-    "Method": "GetUserQuizResults",
-    "RelativePath": "api/UserQuizResults",
+    "ContainingType": "BE_SWD.Controllers.StudentsController",
+    "Method": "GetStudents",
+    "RelativePath": "api/Students",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[BE_SWD.Models.UserQuizResult, BE_SWD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BE_SWD.Models.Student, BE_SWD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -597,22 +1110,22 @@
     ]
   },
   {
-    "ContainingType": "BE_SWD.Controllers.UserQuizResultsController",
-    "Method": "CreateUserQuizResult",
-    "RelativePath": "api/UserQuizResults",
+    "ContainingType": "BE_SWD.Controllers.StudentsController",
+    "Method": "CreateStudent",
+    "RelativePath": "api/Students",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "result",
-        "Type": "BE_SWD.Models.UserQuizResult",
+        "Name": "student",
+        "Type": "BE_SWD.Models.Student",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "BE_SWD.Models.UserQuizResult",
+        "Type": "BE_SWD.Models.Student",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -623,9 +1136,9 @@
     ]
   },
   {
-    "ContainingType": "BE_SWD.Controllers.UserQuizResultsController",
-    "Method": "GetUserQuizResult",
-    "RelativePath": "api/UserQuizResults/{id}",
+    "ContainingType": "BE_SWD.Controllers.StudentsController",
+    "Method": "GetStudent",
+    "RelativePath": "api/Students/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -638,7 +1151,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "BE_SWD.Models.UserQuizResult",
+        "Type": "BE_SWD.Models.Student",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -649,9 +1162,9 @@
     ]
   },
   {
-    "ContainingType": "BE_SWD.Controllers.UserQuizResultsController",
-    "Method": "UpdateUserQuizResult",
-    "RelativePath": "api/UserQuizResults/{id}",
+    "ContainingType": "BE_SWD.Controllers.StudentsController",
+    "Method": "UpdateStudent",
+    "RelativePath": "api/Students/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -662,126 +1175,17 @@
         "IsRequired": true
       },
       {
-        "Name": "result",
-        "Type": "BE_SWD.Models.UserQuizResult",
+        "Name": "student",
+        "Type": "BE_SWD.Models.Student",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BE_SWD.Controllers.UserQuizResultsController",
-    "Method": "DeleteUserQuizResult",
-    "RelativePath": "api/UserQuizResults/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BE_SWD.Controllers.UsersController",
-    "Method": "GetUsers",
-    "RelativePath": "api/Users",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[BE_SWD.Models.User, BE_SWD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "BE_SWD.Controllers.UsersController",
-    "Method": "CreateUser",
-    "RelativePath": "api/Users",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "user",
-        "Type": "BE_SWD.Models.User",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "BE_SWD.Models.User",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "BE_SWD.Controllers.UsersController",
-    "Method": "GetUser",
-    "RelativePath": "api/Users/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "BE_SWD.Models.User",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "BE_SWD.Controllers.UsersController",
-    "Method": "UpdateUser",
-    "RelativePath": "api/Users/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "user",
-        "Type": "BE_SWD.Models.User",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BE_SWD.Controllers.UsersController",
-    "Method": "DeleteUser",
-    "RelativePath": "api/Users/{id}",
+    "ContainingType": "BE_SWD.Controllers.StudentsController",
+    "Method": "DeleteStudent",
+    "RelativePath": "api/Students/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

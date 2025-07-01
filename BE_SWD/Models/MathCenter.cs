@@ -1,14 +1,23 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BE_SWD.Models
 {
     public class MathCenter
     {
         [Key]
-        public int MathCenterId { get; set; }
+        public int Id { get; set; }
         [Required]
-        public string Name { get; set; } = null!;
+        public int AccountId { get; set; }
+        [Required]
+        [MaxLength(150)]
+        public string CenterName { get; set; } = null!;
+        public string? Description { get; set; }
+        [MaxLength(20)]
+        public string? Phone { get; set; }
+        [MaxLength(255)]
         public string? Address { get; set; }
-        public ICollection<User>? Users { get; set; }
+        public bool IsVerified { get; set; } = false;
+        public bool Status { get; set; } = true;
     }
 } 
