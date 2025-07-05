@@ -8,6 +8,7 @@ namespace BE_SWD.Models
         [Key]
         public int Id { get; set; }
         [Required]
+        [EmailAddress]
         [MaxLength(150)]
         public string Email { get; set; } = null!;
         [Required]

@@ -327,6 +327,54 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BE_SWD.Controllers.AuthController",
+    "Method": "SignIn",
+    "RelativePath": "api/Auth/signin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BE_SWD.Models.DTOs.SigninRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AuthController",
+    "Method": "SignUpMathCenter",
+    "RelativePath": "api/Auth/signup/mathcenter",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BE_SWD.Models.DTOs.MathCenterSignupRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BE_SWD.Controllers.AuthController",
+    "Method": "SignUpStudent",
+    "RelativePath": "api/Auth/signup/student",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BE_SWD.Models.DTOs.StudentSignupRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BE_SWD.Controllers.CoursesController",
     "Method": "GetCourses",
     "RelativePath": "api/Courses",

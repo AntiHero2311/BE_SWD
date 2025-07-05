@@ -163,3 +163,4 @@ D:\LearingDocument\SWD\BE_SWD\obj\Debug\net9.0\BE_SWD.pdb
 D:\LearingDocument\SWD\BE_SWD\obj\Debug\net9.0\BE_SWD.genruntimeconfig.cache
 D:\LearingDocument\SWD\BE_SWD\obj\Debug\net9.0\ref\BE_SWD.dll
 D:\LearingDocument\SWD\BE_SWD\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\LearingDocument\SWD\BE_SWD\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
