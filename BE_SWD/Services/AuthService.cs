@@ -12,9 +12,9 @@ namespace BE_SWD.Services
 {
     public interface IAuthService
     {
-        Task<AuthResponse?> SignInAsync(SigninRequest request);
-        Task<AuthResponse?> SignUpStudentAsync(StudentSignupRequest request);
-        Task<AuthResponse?> SignUpMathCenterAsync(MathCenterSignupRequest request);
+        Task<object?> SignInAsync(SigninRequest request);
+        Task<StudentAuthResponse?> SignUpStudentAsync(StudentSignupRequest request);
+        Task<MathCenterAuthResponse?> SignUpMathCenterAsync(MathCenterSignupRequest request);
         string HashPassword(string password);
         bool VerifyPassword(string password, string hash);
     }
@@ -30,7 +30,7 @@ namespace BE_SWD.Services
             _configuration = configuration;
         }
 
-        public async Task<AuthResponse?> SignInAsync(SigninRequest request)
+        public async Task<object?> SignInAsync(SigninRequest request)
         {
             var account = await _context.Accounts
                 .FirstOrDefaultAsync(a => a.Email == request.Email && a.Status);
@@ -42,22 +42,22 @@ namespace BE_SWD.Services
             }
 
             var token = GenerateJwtToken(account);
-            var response = new AuthResponse
-            {
-                Token = token,
-                Email = account.Email,
-                Role = account.Role,
-                UserId = account.Id
-            };
 
-            // Add additional user info based on role
+            // Return different response based on role
             if (account.Role == "Student")
             {
                 var student = await _context.Students
                     .FirstOrDefaultAsync(s => s.AccountId == account.Id);
                 if (student != null)
                 {
-                    response.FullName = student.FullName;
+                    return new StudentAuthResponse
+                    {
+                        Token = token,
+                        Email = account.Email,
+                        Role = account.Role,
+                        UserId = account.Id,
+                        FullName = student.FullName
+                    };
                 }
             }
             else if (account.Role == "MathCenter")
@@ -66,15 +66,22 @@ namespace BE_SWD.Services
                     .FirstOrDefaultAsync(m => m.AccountId == account.Id);
                 if (mathCenter != null)
                 {
-                    response.CenterName = mathCenter.CenterName;
-                    response.IsVerified = mathCenter.IsVerified;
+                    return new MathCenterAuthResponse
+                    {
+                        Token = token,
+                        Email = account.Email,
+                        Role = account.Role,
+                        UserId = account.Id,
+                        CenterName = mathCenter.CenterName,
+                        IsVerified = mathCenter.IsVerified
+                    };
                 }
             }
 
-            return response;
+            return null;
         }
 
-        public async Task<AuthResponse?> SignUpStudentAsync(StudentSignupRequest request)
+        public async Task<StudentAuthResponse?> SignUpStudentAsync(StudentSignupRequest request)
         {
             if (await _context.Accounts.AnyAsync(a => a.Email == request.Email))
             {
@@ -105,19 +112,17 @@ namespace BE_SWD.Services
             await _context.SaveChangesAsync();
 
             var token = GenerateJwtToken(account);
-            return new AuthResponse
+            return new StudentAuthResponse
             {
                 Token = token,
                 Email = account.Email,
                 Role = account.Role,
                 UserId = account.Id,
-                FullName = request.FullName,
-                CenterName = null,
-                IsVerified = false
+                FullName = request.FullName
             };
         }
 
-        public async Task<AuthResponse?> SignUpMathCenterAsync(MathCenterSignupRequest request)
+        public async Task<MathCenterAuthResponse?> SignUpMathCenterAsync(MathCenterSignupRequest request)
         {
             if (await _context.Accounts.AnyAsync(a => a.Email == request.Email))
             {
@@ -150,13 +155,12 @@ namespace BE_SWD.Services
             await _context.SaveChangesAsync();
 
             var token = GenerateJwtToken(account);
-            return new AuthResponse
+            return new MathCenterAuthResponse
             {
                 Token = token,
                 Email = account.Email,
                 Role = account.Role,
                 UserId = account.Id,
-                FullName = null,
                 CenterName = request.CenterName,
                 IsVerified = false
             };

@@ -22,6 +22,15 @@ namespace BE_SWD.Controllers
             return enrollment == null ? NotFound() : enrollment;
         }
 
+        [HttpGet("student/{studentId}")]
+        public async Task<ActionResult<IEnumerable<Enrollment>>> GetEnrollmentsByStudent(int studentId)
+        {
+            var enrollments = await _context.Enrollments
+                .Where(e => e.StudentId == studentId)
+                .ToListAsync();
+            return enrollments;
+        }
+
         [HttpPost]
         public async Task<ActionResult<Enrollment>> CreateEnrollment(Enrollment enrollment)
         {
