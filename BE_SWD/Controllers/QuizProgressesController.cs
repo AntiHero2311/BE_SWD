@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BE_SWD.Data;
 using BE_SWD.Models;
+using BE_SWD.Models.DTOs;
 
 namespace BE_SWD.Controllers
 {
@@ -23,8 +24,21 @@ namespace BE_SWD.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<QuizProgress>> CreateQuizProgress(QuizProgress progress)
+        public async Task<ActionResult<QuizProgress>> CreateQuizProgress(QuizProgressCreateRequest request)
         {
+            // Lấy AttemptNumber lớn nhất của học sinh cho quiz này
+            var maxAttempt = await _context.QuizProgresses
+                .Where(qp => qp.EnrollmentId == request.EnrollmentId && qp.QuizId == request.QuizId)
+                .MaxAsync(qp => (int?)qp.AttemptNumber) ?? 0;
+
+            var progress = new QuizProgress
+            {
+                EnrollmentId = request.EnrollmentId,
+                QuizId = request.QuizId,
+                Score = request.Score,
+                AttemptNumber = maxAttempt + 1,
+                AttemptDate = DateTime.Now
+            };
             _context.QuizProgresses.Add(progress);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetQuizProgress), new { id = progress.Id }, progress);

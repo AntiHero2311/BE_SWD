@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BE_SWD.Data;
 using BE_SWD.Models;
+using BE_SWD.Models.DTOs;
 
 namespace BE_SWD.Controllers
 {
@@ -32,10 +33,28 @@ namespace BE_SWD.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Enrollment>> CreateEnrollment(Enrollment enrollment)
+        public async Task<ActionResult<Enrollment>> CreateEnrollment(EnrollmentCreateRequest request)
         {
+            var enrollment = new Enrollment
+            {
+                StudentId = request.StudentId,
+                CourseId = request.CourseId,
+                RegisteredAt = DateTime.Now
+            };
             _context.Enrollments.Add(enrollment);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                // Kiểm tra lỗi trùng unique constraint (StudentId, CourseId)
+                if (ex.InnerException != null && ex.InnerException.Message.Contains("UQ_Student_Course"))
+                {
+                    return BadRequest(new { message = "Student already enrolled in this course" });
+                }
+                throw;
+            }
             return CreatedAtAction(nameof(GetEnrollment), new { id = enrollment.Id }, enrollment);
         }
 

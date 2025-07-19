@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BE_SWD.Data;
 using BE_SWD.Models;
+using BE_SWD.Models.DTOs;
 
 namespace BE_SWD.Controllers
 {
@@ -23,8 +24,21 @@ namespace BE_SWD.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Lesson>> CreateLesson(Lesson lesson)
+        public async Task<ActionResult<Lesson>> CreateLesson(LessonCreateRequest request)
         {
+            // Lấy OrderIndex lớn nhất của các lesson trong course này
+            var maxOrder = await _context.Lessons
+                .Where(l => l.CourseId == request.CourseId)
+                .MaxAsync(l => (int?)l.OrderIndex) ?? 0;
+
+            var lesson = new Lesson
+            {
+                CourseId = request.CourseId,
+                Title = request.Title,
+                Content = request.Content,
+                Status = request.Status,
+                OrderIndex = maxOrder + 1
+            };
             _context.Lessons.Add(lesson);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetLesson), new { id = lesson.Id }, lesson);

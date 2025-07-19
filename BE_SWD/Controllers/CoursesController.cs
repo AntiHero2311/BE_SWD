@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BE_SWD.Data;
 using BE_SWD.Models;
+using BE_SWD.Models.DTOs;
 
 namespace BE_SWD.Controllers
 {
@@ -23,18 +24,37 @@ namespace BE_SWD.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Course>> CreateCourse(Course course)
+        public async Task<ActionResult<Course>> CreateCourse(CourseCreateUpdateRequest request)
         {
+            var course = new Course
+            {
+                Title = request.Title,
+                Description = request.Description,
+                CreatedByAccountId = request.CreatedByAccountId,
+                MathCenterId = request.MathCenterId,
+                IsVerified = request.IsVerified,
+                VerifiedById = request.VerifiedById,
+                Status = request.Status,
+                CreatedAt = DateTime.Now
+            };
             _context.Courses.Add(course);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetCourse), new { id = course.Id }, course);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCourse(int id, Course course)
+        public async Task<IActionResult> UpdateCourse(int id, CourseCreateUpdateRequest request)
         {
-            if (id != course.Id) return BadRequest();
-            _context.Entry(course).State = EntityState.Modified;
+            var course = await _context.Courses.FindAsync(id);
+            if (course == null) return NotFound();
+            // Không cập nhật Id và CreatedAt
+            course.Title = request.Title;
+            course.Description = request.Description;
+            course.CreatedByAccountId = request.CreatedByAccountId;
+            course.MathCenterId = request.MathCenterId;
+            course.IsVerified = request.IsVerified;
+            course.VerifiedById = request.VerifiedById;
+            course.Status = request.Status;
             try { await _context.SaveChangesAsync(); } catch (DbUpdateConcurrencyException) { if (!_context.Courses.Any(e => e.Id == id)) return NotFound(); else throw; }
             return NoContent();
         }
