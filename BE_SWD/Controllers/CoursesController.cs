@@ -35,6 +35,7 @@ namespace BE_SWD.Controllers
                 IsVerified = request.IsVerified,
                 VerifiedById = request.VerifiedById,
                 Status = request.Status,
+                Price = request.Price,
                 CreatedAt = DateTime.Now
             };
             _context.Courses.Add(course);
@@ -55,6 +56,7 @@ namespace BE_SWD.Controllers
             course.IsVerified = request.IsVerified;
             course.VerifiedById = request.VerifiedById;
             course.Status = request.Status;
+            course.Price = request.Price;
             try { await _context.SaveChangesAsync(); } catch (DbUpdateConcurrencyException) { if (!_context.Courses.Any(e => e.Id == id)) return NotFound(); else throw; }
             return NoContent();
         }

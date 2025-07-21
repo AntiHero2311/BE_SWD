@@ -18,5 +18,7 @@ namespace BE_SWD.Models
         public int? VerifiedById { get; set; }
         public bool Status { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal Price { get; set; } = 0;
     }
 } 

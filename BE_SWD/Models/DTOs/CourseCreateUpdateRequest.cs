@@ -9,5 +9,6 @@ namespace BE_SWD.Models.DTOs
         public bool IsVerified { get; set; } = false;
         public int? VerifiedById { get; set; }
         public bool Status { get; set; } = true;
+        public decimal Price { get; set; } = 0;
     }
 } 
