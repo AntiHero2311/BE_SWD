@@ -50,3 +50,5 @@ wwwroot/staticwebassets/
 # Others
 *.swp
 *.tmp 
+# Firebase key
+BE_SWD/firebase-key.json
