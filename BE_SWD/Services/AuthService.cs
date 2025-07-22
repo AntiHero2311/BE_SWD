@@ -77,6 +77,22 @@ namespace BE_SWD.Services
                     };
                 }
             }
+            else if (account.Role == "Admin")
+            {
+                var admin = await _context.Admins
+                    .FirstOrDefaultAsync(a => a.AccountId == account.Id);
+                if (admin != null)
+                {
+                    return new AdminAuthResponse
+                    {
+                        Token = token,
+                        Email = account.Email,
+                        Role = account.Role,
+                        UserId = account.Id,
+                        FullName = admin.FullName
+                    };
+                }
+            }
 
             return null;
         }
