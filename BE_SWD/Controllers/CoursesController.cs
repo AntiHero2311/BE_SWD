@@ -23,11 +23,16 @@ namespace BE_SWD.Controllers
             return course == null ? NotFound() : course;
         }
 
-        [HttpGet("by-mathcenter/{mathCenterId}")]
-        public async Task<ActionResult<IEnumerable<Course>>> GetCoursesByMathCenter(int mathCenterId)
+        [HttpGet("by-mathcenter/{userId}")]
+        public async Task<ActionResult<IEnumerable<Course>>> GetCoursesByMathCenter(int userId)
         {
+            var mathCenter = await _context.MathCenters.FirstOrDefaultAsync(mc => mc.AccountId == userId);
+            if (mathCenter == null)
+            {
+                return NotFound();
+            }
             var courses = await _context.Courses
-                .Where(c => c.MathCenterId == mathCenterId)
+                .Where(c => c.MathCenterId == mathCenter.Id)
                 .ToListAsync();
             return courses;
         }
