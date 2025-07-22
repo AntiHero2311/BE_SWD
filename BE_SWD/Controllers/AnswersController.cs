@@ -22,6 +22,13 @@ namespace BE_SWD.Controllers
             return answer == null ? NotFound() : answer;
         }
 
+        [HttpGet("by-question/{questionId}")]
+        public async Task<ActionResult<IEnumerable<Answer>>> GetAnswersByQuestion(int questionId)
+        {
+            var answers = await _context.Answers.Where(a => a.QuestionId == questionId).ToListAsync();
+            return answers;
+        }
+
         [HttpPost]
         public async Task<ActionResult<Answer>> CreateAnswer(Answer answer)
         {

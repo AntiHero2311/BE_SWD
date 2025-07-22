@@ -26,6 +26,13 @@ namespace BE_SWD.Controllers
             return lesson == null ? NotFound() : lesson;
         }
 
+        [HttpGet("by-course/{courseId}")]
+        public async Task<ActionResult<IEnumerable<Lesson>>> GetLessonsByCourse(int courseId)
+        {
+            var lessons = await _context.Lessons.Where(l => l.CourseId == courseId).ToListAsync();
+            return lessons;
+        }
+
         [HttpPost]
         public async Task<ActionResult<Lesson>> CreateLesson(LessonCreateRequest request)
         {

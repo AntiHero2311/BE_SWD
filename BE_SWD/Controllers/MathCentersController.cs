@@ -39,6 +39,17 @@ namespace BE_SWD.Controllers
             return NoContent();
         }
 
+        [HttpPut("{id}/verify")]
+        public async Task<IActionResult> VerifyMathCenter(int id)
+        {
+            var mathCenter = await _context.MathCenters.FindAsync(id);
+            if (mathCenter == null) return NotFound();
+            if (mathCenter.IsVerified) return BadRequest(new { message = "MathCenter đã được xác thực trước đó." });
+            mathCenter.IsVerified = true;
+            await _context.SaveChangesAsync();
+            return Ok(new { message = "MathCenter đã được xác thực thành công." });
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMathCenter(int id)
         {
