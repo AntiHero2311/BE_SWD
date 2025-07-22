@@ -8,5 +8,6 @@ namespace BE_SWD.Models.DTOs
         public int UserId { get; set; }
         public string? CenterName { get; set; }
         public bool IsVerified { get; set; }
+        public int? MathCenterId { get; set; }
     }
 } 

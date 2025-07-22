@@ -56,7 +56,8 @@ namespace BE_SWD.Services
                         Email = account.Email,
                         Role = account.Role,
                         UserId = account.Id,
-                        FullName = student.FullName
+                        FullName = student.FullName,
+                        StudentId = student.Id
                     };
                 }
             }
@@ -73,7 +74,8 @@ namespace BE_SWD.Services
                         Role = account.Role,
                         UserId = account.Id,
                         CenterName = mathCenter.CenterName,
-                        IsVerified = mathCenter.IsVerified
+                        IsVerified = mathCenter.IsVerified,
+                        MathCenterId = mathCenter.Id
                     };
                 }
             }
