@@ -35,9 +35,6 @@ Thumbs.db
 # VS
 .vs/
 
-# EF Migrations
-Migrations/
-
 # Publish
 publish/
 
