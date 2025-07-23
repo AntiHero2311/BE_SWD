@@ -48,5 +48,15 @@ namespace BE_SWD.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+
+        [HttpPut("{id}/ban")]
+        public async Task<IActionResult> BanAccount(int id)
+        {
+            var account = await _context.Accounts.FindAsync(id);
+            if (account == null) return NotFound();
+            account.Status = false;
+            await _context.SaveChangesAsync();
+            return Ok(new { message = "Account has been banned." });
+        }
     }
 } 

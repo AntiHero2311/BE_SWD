@@ -60,9 +60,9 @@ namespace BE_SWD.Controllers
                 Description = request.Description,
                 CreatedByAccountId = request.CreatedByAccountId,
                 MathCenterId = request.MathCenterId,
-                IsVerified = request.IsVerified,
+                IsVerified = false, // Always false on creation
                 VerifiedById = request.VerifiedById,
-                Status = request.Status,
+                Status = true, // Always true on creation
                 Price = request.Price,
                 CreatedAt = DateTime.Now
             };
@@ -87,6 +87,18 @@ namespace BE_SWD.Controllers
             course.Price = request.Price;
             try { await _context.SaveChangesAsync(); } catch (DbUpdateConcurrencyException) { if (!_context.Courses.Any(e => e.Id == id)) return NotFound(); else throw; }
             return NoContent();
+        }
+
+        [HttpPut("{id}/verify")]
+        public async Task<IActionResult> VerifyCourse(int id, [FromBody] int? verifiedById)
+        {
+            var course = await _context.Courses.FindAsync(id);
+            if (course == null) return NotFound();
+            if (course.IsVerified) return BadRequest(new { message = "Course is already verified." });
+            course.IsVerified = true;
+            course.VerifiedById = verifiedById;
+            await _context.SaveChangesAsync();
+            return Ok(new { message = "Course has been verified." });
         }
 
         [HttpDelete("{id}")]
