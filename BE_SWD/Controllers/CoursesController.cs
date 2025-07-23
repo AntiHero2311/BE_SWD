@@ -37,6 +37,20 @@ namespace BE_SWD.Controllers
             return courses;
         }
 
+        [HttpGet("verified")]
+        public async Task<ActionResult<IEnumerable<Course>>> GetVerifiedCourses()
+        {
+            var courses = await _context.Courses.Where(c => c.IsVerified).ToListAsync();
+            return courses;
+        }
+
+        [HttpGet("unverified")]
+        public async Task<ActionResult<IEnumerable<Course>>> GetUnverifiedCourses()
+        {
+            var courses = await _context.Courses.Where(c => !c.IsVerified).ToListAsync();
+            return courses;
+        }
+
         [HttpPost]
         public async Task<ActionResult<Course>> CreateCourse(CourseCreateUpdateRequest request)
         {
